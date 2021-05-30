@@ -1,123 +1,122 @@
-*{
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
+body {
+    margin: 0;
+    height: 100%;
 }
 
-body{
-  background: #F7F7F7 0% 0% no-repeat padding-box;
-  opacity: 1;
+.header {
+    padding: 15px 0;
+    background-color: #ffffff;
 }
 
-.logo-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  margin-top: 5px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  opacity: 1;
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid green;
 }
 
-.logo-name-container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 90%;
-  opacity: 1;
-}
-.logo{
-  border: 0px solid #42515F;
-  opacity: 1;
-  width: 50px;
-  height: 47px;
-  margin-left: 60px;
+.logoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 0px solid green;
+    width: 80%;
 }
 
-.text-container{
-  display: flex;
-  flex-direction: column;
+.logoContainer-img {
+    border: solid 0px #42515f;
 }
 
-.emp-text{
-  text-align: left;
-  font: normal normal bold 22px/25px Montserrat;
-  letter-spacing: 0px;
-  text-transform: capitalize;
-  opacity: 1;
+.emp-text {
+    font: normal normal bold 20px/25px Montserrat;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0px;
+    color: #82a70c;
+    text-transform: capitalize;
 }
 
-.logo-employee{
-  text-align: left;
-font: normal normal bold 22px/25px Montserrat;
-letter-spacing: 0px;
-color: #82A70C;
-text-transform: capitalize;
+.emp-payroll {
+    color: #42515f;
 }
 
-.logo-payroll{
-  color: #42515F;
+* {
+    box-sizing: border-box;
 }
 
-
-.form-container{
-  min-height: calc(100% - 80px);
-  display: flex;
-  margin-top: 50px;
-  margin-left: 100px;
-  width: 80%;
-  align-items: center;
-  justify-content: center;
-  
+.form-content {
+    min-height: calc(100% - 80px);
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid green;
 }
 
-.form{
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: 0px 3px 6px #00000029;
-  border: 1px solid #F5F5F5;
-  border-radius: 8px;
-  opacity: 1;
+.form {
+    width: 65%;
+    padding: 44px 60px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #f5f5f5;
+    border-radius: 8px;
+    opacity: 1;
 }
 
-.form-head{
-  text-align: left;
-  font: normal normal bold 28px/37px Roboto;
-  letter-spacing: 0px;
-  color: #42515F;
-  text-transform: capitalize;
-  margin-top: 42px;
-  margin-left: 149px;
-  margin-right: 687px;
-  opacity: 1;
+.form-head {
+    font: normal normal bold 24px/37px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    text-transform: capitalize;
+    opacity: 1;
+    padding: 20px;
 }
 
-.row-content{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  opacity: 1;
+.row-content {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+    border: 0px solid green;
 }
 
-label{
-  margin-top: 53px;
-  margin-left: 149px;
-  text-align: left;
-  font: normal normal normal 18px/24px Roboto;
-  letter-spacing: 0px;
-  color: #42515F;
-  opacity: 1;
+.label {
+    min-width: 140px;
 }
 
-input{
-  margin-top: 53px;
-  margin-left: 142px;
-  width: 686px;
-  height: 50px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  border: 1px solid #BDBDBD;
-  border-radius: 3px;
-  opacity: 1;
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
 }
 
+.text {
+    font-size: 16px;
+    color: #42515f;
+    opacity: 1;
+    font-family: Roboto;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.profile-radio-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-radio-content>label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile {
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 12px;
+}
