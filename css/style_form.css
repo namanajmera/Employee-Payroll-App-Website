@@ -120,3 +120,12 @@ label {
     border-radius: 50%;
     margin-left: 12px;
 }
+
+.checkbox{
+  width: 13px;
+  height: 13px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #BDBDBD;
+  border-radius: 1px;
+  opacity: 1;
+}

@@ -51,6 +51,39 @@
           </label>
         </div>
       </div>
+
+      <div class="row-content">
+        <label class="label text" for="gender">Gender</label>
+        <div>
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male" class="text">Male</label>
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="female" class="text">Female</label>
+        </div>
+      </div>
+
+      <div class="row-content">
+        <label class="label text" for="department">Department</label>
+        <div>
+          <input type="checkbox" class="checkbox" id="hr" name="HR" values="HR">
+          <label for="hr" class="text">HR</label>
+          <input type="checkbox" class="checkbox" id="sales" name="Sales" values="Sales">
+          <label for="sales" class="text">Sales</label>
+          <input type="checkbox" class="checkbox" id="finance" name="Finance" values="Finance">
+          <label for="finance" class="text">Finance</label>
+          <input type="checkbox" class="checkbox" id="engineer" name="Engineer" values="Engineer">
+          <label for="engineer" class="text">Engineer</label>
+          <input type="checkbox" class="checkbox" id="others" name="Others" values="Others">
+          <label for="others" class="text">Others</label>
+        </div>
+      </div>
+
+      <div class="row-content">
+        <label for="salary" class="label text">Choose your salary: </label>
+        <input type="range" class="input" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
+        <output class="salary-output" for="salary">400000</output>
+      </div>
+
     </form>
   </div>
 
