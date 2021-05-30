@@ -97,7 +97,7 @@ label {
 }
 
 .input {
-    width: 100%;
+    width: 80%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -141,3 +141,38 @@ select{
   color: #42515f;
   background-color: transparent;
 }
+
+.button-parent{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.button{
+  width: 100px;
+  height: 40px;
+  background: transparent;
+  font-weight: 400;
+  opacity: 1;
+  min-width: 140px;
+  font-size: 15px;
+  padding: 7px 7px ;
+  font-family: Roboto;
+  color: #42515F;
+  border: 1px solid #969696;
+  background: #E2E2E2 0% 0% no-repeat padding-box;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sumbitButton{
+  margin-right: 30px;
+}
+
+.cancelButton{
+  padding-top: 8px;
+  text-decoration: none;
+  text-align: center;
+}
+
