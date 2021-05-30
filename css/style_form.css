@@ -176,3 +176,10 @@ select{
   text-align: center;
 }
 
+.cancelButton:hover, .resetButton:hover{
+  background-color: grey;
+}
+
+.sumbitButton:hover{
+  background-color: #82A70C;
+}
