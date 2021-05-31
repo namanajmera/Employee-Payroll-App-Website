@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/css/style_form.css">
   <title>Employee Payroll App</title>
   <script defer src="/js/script_form.js"></script>
+  <script defer src="/js/Employee_Payroll_Data.js"></script>
 </head>
 
 <body>
@@ -24,11 +25,12 @@
   </header>
 
   <div class="form-content">
-    <form class="form" action="#" onsubmit="save();return false">
+    <form class="form" action="#" onreset="reset()" onsubmit="save()">
       <div class="form-head">Employee Payroll Form</div>
       <div class="row-content">
         <label class="label text" for="name">Name</label>
         <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
+        <error-output class="text-error" for="text"></error-output>
       </div>
 
       <div class="row-content">
@@ -58,7 +60,7 @@
         <div>
           <input type="radio" id="male" name="gender" value="male">
           <label for="male" class="text">Male</label>
-          <input type="radio" id="male" name="gender" value="male">
+          <input type="radio" id="female" name="gender" value="female">
           <label for="female" class="text">Female</label>
         </div>
       </div>

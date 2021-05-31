@@ -96,6 +96,13 @@ label {
     font-family: Roboto;
 }
 
+.text-error{
+    color: red;
+    margin-left: 10px;
+    font-size: 12px;
+    font-style: italic;
+}
+
 .input {
     width: 80%;
     padding: 12px;
