@@ -42,7 +42,6 @@ const createInnerHTML = () => {
                          </tr>
           `;
      }
-     console.log("Working11")
      document.querySelector("#display").innerHTML = innerHTMLData;
 }
 
