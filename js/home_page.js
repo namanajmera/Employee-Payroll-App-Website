@@ -4,34 +4,67 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 const createInnerHTML = () => {
      const headerHTML = `
-     <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Gender</th>
-          <th>Department</th>
-          <th>Salary</th>
-          <th>Start Date</th>
-          <th>Actions</th>
-     </tr>
+     <th></th>
+     <th>Name</th>
+     <th>Gender</th>
+     <th>Department</th>
+     <th>Salary</th>
+     <th>Start Date</th>
+     <th>Actions</th>
      `
-     const innerHTML = `${headerHTML}
+     let employeePayrollData= createEmployeePayrollJSON()[0];
+     const innerHTMLData = `
+     ${headerHTML}
                     <tr>
-                         <td><img src="/assets/profile-images/Ellipse -2.png" alt="" class="progile"></td>
-                         <td>Naman Ajmera</td>
-                         <td>Male</td>
+                         <td><img src="${employeePayrollData._profilePic}" alt="" class="profile"></td>
+                         <td>${employeePayrollData._name}</td>
+                         <td>${employeePayrollData._salary}</td>
                          <td>
-                              <div class="dept-label">HR</div>
-                              <div class="dept-label">Finance</div>
+                              <div class="dept-label">${employeePayrollData._department[0]}</div>
+                              <div class="dept-label">${employeePayrollData._department[1]}</div>
                          </td>
-                         <td>₹ 3000000</td>
-                         <td>1 Nov 2020</td>
+                         <td>₹ ${employeePayrollData._salary}</td>
+                         <td>${employeePayrollData._startDate}</td>
                          <td>
-                              <img src="/assets/design-icons/delete_black_24dp.svg" alt="delete" id="1" class="actions"
+                              <img name="${employeePayrollData._id}" src="/assets/design-icons/delete_black_24dp.svg" alt="delete" id="1" class="actions"
                                    onclick="remove(this)">
-                              <img src="/assets/design-icons/edit_black_24dp.svg" alt="edit" id="2" class="actions"
+                              <img name="${employeePayrollData._id}" src="/assets/design-icons/edit_black_24dp.svg" alt="edit" id="2" class="actions"
                                    onclick="update(this)">
                          </td>
                     </tr>
-     `
-     document.querySelector("#display").innerHTML = innerHTML;
+     `;
+     document.querySelector("#display").innerHTML = innerHTMLData;
+}
+
+
+// JSON Data
+const createEmployeePayrollJSON = () =>{
+     let employeePayrollListLocal=[
+          {
+               _name: "Naman Ajmera",
+               _gender : "Male",
+               _department:[
+                    "HR",
+                    "Engineering"
+               ],
+               _salary: "3000000",
+               _startDate: "29 Oct 2020",
+               _note:'',
+               _id:new Date().getTime(),
+               _profilePic:"/assets/profile-images/Ellipse -2.png"
+          },
+          {
+               _name: "Anuradha Duriya",
+               _gender : "Female",
+               _department:[
+                    "HR"
+               ],
+               _salary: "4000000",
+               _startDate: "29 Nov 2020",
+               _note:'',
+               _id:new Date().getTime()+1,
+               _profilePic:"/assets/profile-images/Ellipse 1.png"
+          }
+     ];
+     return employeePayrollListLocal;
 }
