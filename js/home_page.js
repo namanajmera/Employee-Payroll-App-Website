@@ -12,24 +12,27 @@ const createInnerHTML = () => {
      <th>Start Date</th>
      <th>Actions</th>
      `
-     let employeePayrollData= createEmployeePayrollJSON()[1];
-     const innerHTMLData = `
-     ${headerHTML}
-                    <tr>
-                         <td><img src="${employeePayrollData._profilePic}" alt="" class="profile"></td>
-                         <td>${employeePayrollData._name}</td>
-                         <td>${employeePayrollData._salary}</td>
-                         <td>${getHTMLDepartment(employeePayrollData._department)}</td>
-                         <td>₹ ${employeePayrollData._salary}</td>
-                         <td>${employeePayrollData._startDate}</td>
-                         <td>
-                              <img name="${employeePayrollData._id}" src="/assets/design-icons/delete_black_24dp.svg" alt="delete" id="1" class="actions"
-                                   onclick="remove(this)">
-                              <img name="${employeePayrollData._id}" src="/assets/design-icons/edit_black_24dp.svg" alt="edit" id="2" class="actions"
-                                   onclick="update(this)">
-                         </td>
-                    </tr>
-     `;
+     let innerHTMLData=`${headerHTML}`
+     let employeePayrollDataList= createEmployeePayrollJSON();
+     document.querySelector(".emp-count").innerHTML=employeePayrollDataList.length;
+     for(const employeePayrollData of employeePayrollDataList){
+          innerHTMLData = `${innerHTMLData}
+                         <tr>
+                              <td><img src="${employeePayrollData._profilePic}" alt="" class="profile"></td>
+                              <td>${employeePayrollData._name}</td>
+                              <td>${employeePayrollData._salary}</td>
+                              <td>${getHTMLDepartment(employeePayrollData._department)}</td>
+                              <td>₹ ${employeePayrollData._salary}</td>
+                              <td>${employeePayrollData._startDate}</td>
+                              <td>
+                                   <img name="${employeePayrollData._id}" src="/assets/design-icons/delete_black_24dp.svg" alt="delete" id="1" class="actions"
+                                        onclick="remove(this)">
+                                   <img name="${employeePayrollData._id}" src="/assets/design-icons/edit_black_24dp.svg" alt="edit" id="2" class="actions"
+                                        onclick="update(this)">
+                              </td>
+                         </tr>
+          `;
+     }
      document.querySelector("#display").innerHTML = innerHTMLData;
 }
 
