@@ -47,7 +47,7 @@ function createAndUpdateStorage(employeePayrollData) {
 
 const createEmployeePayroll = () => {
   let employeePayrollData = new EmployeePayrollData();
-
+  employeePayrollData.id = new Date().getTime() + 1;
   employeePayrollData.name = getValue("#name");
   employeePayrollData.gender = getSelectedValues("[name=gender]").pop();
   employeePayrollData.profilePicture = getSelectedValues("[name=profile]").pop();

@@ -34,9 +34,9 @@ const createInnerHTML = () => {
                               <td>₹ ${employeePayrollData._salary}</td>
                               <td>${employeePayrollData._startDate}</td>
                               <td>
-                                   <img name="${employeePayrollData._id}" src="/assets/design-icons/delete_black_24dp.svg" alt="delete" id="1" class="actions"
+                                   <img id="${employeePayrollData._id}" src="/assets/design-icons/delete_black_24dp.svg" alt="delete" class="actions"
                                         onclick="remove(this)">
-                                   <img name="${employeePayrollData._id}" src="/assets/design-icons/edit_black_24dp.svg" alt="edit" id="2" class="actions"
+                                   <img id="${employeePayrollData._id}" src="/assets/design-icons/edit_black_24dp.svg" alt="edit" class="actions"
                                         onclick="update(this)">
                               </td>
                          </tr>
@@ -51,4 +51,15 @@ const getHTMLDepartment = (deptList) => {
           deptHTML = `${deptHTML} <div class="dept-label">${dept}</div>`
      }
      return deptHTML;
+}
+
+const remove = (node) => {
+     let employeePayrollData = employeePayrollDataList.find(empData => empData._id == node.id);
+     if (!employeePayrollData) return
+     const index = employeePayrollDataList.map(empData => empData._id)
+          .indexOf(employeePayrollData._id);
+     employeePayrollDataList.splice(index, 1);
+     localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollDataList));
+     document.querySelector(".emp-count").innerHTML = employeePayrollDataList.length;
+     createInnerHTML();
 }
