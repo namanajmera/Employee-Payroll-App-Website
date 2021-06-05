@@ -1,9 +1,12 @@
 let employeePayrollDataList;
+let site_properties = {
+     home_page: "../pages/employee_payroll_home.html",
+     add_emp_payroll_page: "../pages/employee_payroll_form.html"
+}
 window.addEventListener("DOMContentLoaded", (event) => {
      employeePayrollDataList = getEmployeePayrollDataFromStorage();
      document.querySelector(".emp-count").innerHTML = employeePayrollDataList.length;
      createInnerHTML();
-     localStorage.removeItem('editEmp')
 })
 
 const getEmployeePayrollDataFromStorage = () => {
@@ -32,7 +35,7 @@ const createInnerHTML = () => {
                               <td>${employeePayrollData._salary}</td>
                               <td>${getHTMLDepartment(employeePayrollData._departments)}</td>
                               <td>₹ ${employeePayrollData._salary}</td>
-                              <td>${employeePayrollData._startDate}</td>
+                              <td>${stringifyDate(employeePayrollData._startDate)}</td>
                               <td>
                                    <img id="${employeePayrollData._id}" src="/assets/design-icons/delete_black_24dp.svg" alt="delete" class="actions"
                                         onclick="remove(this)">
@@ -62,4 +65,17 @@ const remove = (node) => {
      localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollDataList));
      document.querySelector(".emp-count").innerHTML = employeePayrollDataList.length;
      createInnerHTML();
+}
+
+const update = (node) => {
+     let employeePayrollData = employeePayrollDataList.find(empData => empData._id == node.id);
+     if (!employeePayrollData) return
+     localStorage.setItem('editEmp', JSON.stringify(employeePayrollData))
+     window.location.replace(site_properties.add_emp_payroll_page)
+}
+
+const stringifyDate = (date) => {
+     const options = { day: 'numeric', month: 'short', year: 'numeric' };
+     const newDate = !date ? "undefined" : new Date(Date.parse(date)).toLocaleDateString('en-GB', options);
+     return newDate;
 }

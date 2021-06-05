@@ -1,3 +1,6 @@
+let isUpdate = false
+let employeePayrollObj = {};
+
 window.addEventListener("DOMContentLoaded", () => {
 
   const name = document.querySelector("#name");
@@ -20,6 +23,8 @@ window.addEventListener("DOMContentLoaded", () => {
   salary.oninput = function () {
     output.textContent = salary.value;
   };
+
+  checkForUpdate();
 });
 
 const save = () => {
@@ -106,4 +111,56 @@ const resetRange = (propertyId, outputId) => {
   rangeElement.value = 400000;
   const outputElement = document.querySelector(outputId);
   outputElement.textContent = 400000;
+};
+
+const checkForUpdate = () => {
+  const employeePayrollJson = localStorage.getItem('editEmp')
+  isUpdate = employeePayrollJson ? true : false
+  if (!isUpdate) return
+  employeePayrollObj = JSON.parse(employeePayrollJson);
+  setForm()
+}
+
+const setForm = () => {
+  setValue("#name", employeePayrollObj._name);
+  setSelectedValues("[name=profile]", employeePayrollObj._profilePicture);
+  setSelectedValues("[name=gender]", employeePayrollObj._gender);
+  setSelectedValues("[name=department]", employeePayrollObj._departments);
+  setRange("#salary", ".salary-output", employeePayrollObj._salary);
+  setValue("#notes", employeePayrollObj._note);
+  let date = stringifyDate(employeePayrollObj.startDate).split(" ");
+  setValue("#day", date[0]);
+  setValue("#month", date[1]);
+  setValue("#year", date[2]);
+}
+
+const stringifyDate = (date) => {
+  const options = { day: 'numeric', month: 'short', year: 'numeric' };
+  const newDate = !date ? "undefined" : new Date(Date.parse(date)).toLocaleDateString('en-GB', options);
+  return newDate;
+}
+
+const setValue = (propertyId, value) => {
+  const element = document.querySelector(propertyId);
+  element.value = value;
+};
+
+const setSelectedValues = (propertyName, values) => {
+  let allValues = document.querySelectorAll(propertyName);
+  allValues.forEach(input => {
+    if (Array.isArray(values)) {
+      if (values.includes(input.value)) {
+        input.checked = true;
+      }
+    } else if (input.value == values) {
+      input.checked = true;
+    }
+  });
+};
+
+const setRange = (propertyId, outputId, rangeValue) => {
+  const rangeElement = document.querySelector(propertyId);
+  rangeElement.value = rangeValue;
+  const outputElement = document.querySelector(outputId);
+  outputElement.textContent = rangeElement.value;
 };
