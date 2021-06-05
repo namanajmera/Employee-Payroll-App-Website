@@ -1,8 +1,10 @@
 let isUpdate = false
 let employeePayrollObj = {};
-
+let site_properties = {
+  home_page: "../pages/employee_payroll_home.html",
+  add_emp_payroll_page: "../pages/employee_payroll_form.html"
+}
 window.addEventListener("DOMContentLoaded", () => {
-
   const name = document.querySelector("#name");
   const nameError = document.querySelector(".name-error");
   name.addEventListener("input", function () {
@@ -27,30 +29,79 @@ window.addEventListener("DOMContentLoaded", () => {
   checkForUpdate();
 });
 
-const save = () => {
+const save = (event) => {
+  event.preventDefault();
+  event.stopPropagation();
   try {
-    let employeePayrollData = createEmployeePayroll();
-    createAndUpdateStorage(employeePayrollData);
+    setEmployeePayrollObject();
+    createAndUpdateStorage();
+    resetForm();
+    window.location.replace(site_properties.home_page)
   } catch (submitError) {
     alert(submitError);
     return;
   }
 };
 
-function createAndUpdateStorage(employeePayrollData) {
-  let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+const setEmployeePayrollObject = () => {
+  employeePayrollObj._name = getValue("#name");
+  employeePayrollObj._profilePicture = getSelectedValues("[name=profile]").pop();
+  employeePayrollObj._gender = getSelectedValues("[name=gender]").pop();
+  employeePayrollObj._salary = getValue("#salary");
+  employeePayrollObj._note = getValue("#notes");
+  let dateString = getValue("#day") + " " + getValue("#month") + " " + getValue("#year");
+  employeePayrollObj._startDate = new Date(dateString);
+  employeePayrollObj._departments = getSelectedValues("[name=department]");
+};
 
-  if (employeePayrollList != undefined) {
-    employeePayrollList.push(employeePayrollData)
+const createAndUpdateStorage = () => {
+  let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+  if (employeePayrollList) {
+    let employeePayrollData = employeePayrollList.find(empData => empData._id == employeePayrollObj._id);
+    if (!employeePayrollData) {
+      employeePayrollList.push(createEmployeePayrollData());
+    } else {
+      const index = employeePayrollList.map(empData => empData._id)
+        .indexOf(employeePayrollData._id);
+      employeePayrollList.splice(index, 1, createEmployeePayrollData(employeePayrollData._id));
+    }
   } else {
-    employeePayrollList = [employeePayrollData];
+    employeePayrollList = [createEmployeePayroll()];
   }
 
   alert("Store in Local Storage...!!!")
   localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
 }
 
-const createEmployeePayroll = () => {
+const createEmployeePayrollData = (id) => {
+  let employeePayrollData = new EmployeePayrollData()
+  if (!id) employeePayrollData.id = createEmployeeId()
+  else employeePayrollData.id = id;
+  setEmployeePayrollData(employeePayrollData);
+  return employeePayrollData;
+}
+
+const setEmployeePayrollData = (employeePayrollData) => {
+  employeePayrollData.name = employeePayrollObj._name;
+  employeePayrollData.gender = employeePayrollObj._gender;
+  employeePayrollData.profilePicture = employeePayrollObj._profilePicture;
+  employeePayrollData.salary = employeePayrollObj._salary;
+  employeePayrollData.startDate = employeePayrollObj._startDate;
+  employeePayrollData.note = employeePayrollObj._note;
+  employeePayrollData.departments = employeePayrollObj._departments;
+
+  alert("Employee Added Successfully!\n" + employeePayrollData.toString());
+};
+
+const createEmployeeId = () => {
+  let employeeId = localStorage.getItem("EmployeeID");
+  employeeId = !employeeId ? 1 : (parseInt(employeeId) + 1).toString();
+  localStorage.setItem("EmployeeID", employeeId);
+  return employeeId;
+};
+
+
+function createEmployeePayroll() {
   let employeePayrollData = new EmployeePayrollData();
   employeePayrollData.id = new Date().getTime() + 1;
   employeePayrollData.name = getValue("#name");
@@ -128,7 +179,7 @@ const setForm = () => {
   setSelectedValues("[name=department]", employeePayrollObj._departments);
   setRange("#salary", ".salary-output", employeePayrollObj._salary);
   setValue("#notes", employeePayrollObj._note);
-  let date = stringifyDate(employeePayrollObj.startDate).split(" ");
+  let date = stringifyDate(employeePayrollObj._startDate).split(" ");
   setValue("#day", date[0]);
   setValue("#month", date[1]);
   setValue("#year", date[2]);
