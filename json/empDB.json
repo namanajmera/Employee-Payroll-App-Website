@@ -2,20 +2,28 @@
   "employees_payroll": [
     {
       "id": 1,
-      "name": "Anuradha Dhuria",
-      "profilePicture":"../assets/profile-images/Ellipse -1.png",
-      "gender":"female",
-      "department":[
-        "HR", "Sales"
+      "_name": "Anuradha Dhuria",
+      "_profilePicture": "../assets/profile-images/Ellipse -1.png",
+      "_gender": "Female",
+      "_departments": [
+        "HR",
+        "Sales"
       ],
-      "salary": 430000,
-      "startDate":
-        {
-          "day":"2",
-          "month":"January",
-          "year":2021
-        },
-        "notes":"Hello There...!!!!"
+      "_salary": 430000,
+      "_startDate": "2015-12-31T18:30:00.000Z",
+      "_notes": "Hello There...!!!!"
+    },
+    {
+      "id": 2,
+      "_name": "Naman Ajmera",
+      "_profilePicture": "../assets/profile-images/Ellipse -2.png",
+      "_gender": "Male",
+      "_departments": [
+        "HR"
+      ],
+      "_salary": 500000,
+      "_startDate": "2015-12-21T18:30:00.000Z",
+      "_notes": "Hello There...!!!!"
     }
   ]
 }
