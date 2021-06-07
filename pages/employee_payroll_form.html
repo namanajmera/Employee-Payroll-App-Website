@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="/css/style_form.css">
   <title>Employee Payroll App</title>
   <script defer src="/js/script_form.js"></script>
-  <script defer src="/js/Employee_Payroll_Data.js"></script>
+  <script src="/js/site_properties.js"></script>
+  <!-- <script defer src="/js/Employee_Payroll_Data.js"></script> -->
 </head>
 
 <body>
@@ -58,9 +59,9 @@
       <div class="row-content">
         <label class="label text" for="gender">Gender</label>
         <div>
-          <input type="radio" id="male" name="gender" value="male">
+          <input type="radio" id="male" name="gender" value="Male">
           <label for="male" class="text">Male</label>
-          <input type="radio" id="female" name="gender" value="female">
+          <input type="radio" id="female" name="gender" value="Female">
           <label for="female" class="text">Female</label>
         </div>
       </div>
@@ -156,7 +157,7 @@
       </div>
 
       <div class="button-parent">
-        <a href="./employee_payroll_form.html" class="resetButton button cancelButton">Cancel</a>
+        <a href="/pages/employee_payroll_home.html" class="resetButton button cancelButton">Cancel</a>
         <div class="sumbit-reset">
           <button type="submit" class="button sumbitButton">Submit</button>
           <button type="reset" class="resetButton button">Reset</button>

@@ -1,0 +1,21 @@
+{
+  "employees_payroll": [
+    {
+      "id": 1,
+      "name": "Anuradha Dhuria",
+      "profilePicture":"../assets/profile-images/Ellipse -1.png",
+      "gender":"female",
+      "department":[
+        "HR", "Sales"
+      ],
+      "salary": 430000,
+      "startDate":
+        {
+          "day":"2",
+          "month":"January",
+          "year":2021
+        },
+        "notes":"Hello There...!!!!"
+    }
+  ]
+}
