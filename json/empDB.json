@@ -7,11 +7,13 @@
       "_gender": "Female",
       "_departments": [
         "HR",
-        "Sales"
+        "Sales",
+        "Engineer",
+        "Others"
       ],
-      "_salary": 430000,
+      "_salary": "430000",
       "_startDate": "2015-12-31T18:30:00.000Z",
-      "_notes": "Hello There...!!!!"
+      "_note": "Hello There....!!!!!!!!!"
     },
     {
       "id": 2,
@@ -19,11 +21,27 @@
       "_profilePicture": "../assets/profile-images/Ellipse -2.png",
       "_gender": "Male",
       "_departments": [
-        "HR"
+        "HR",
+        "Sales",
+        "Finance",
+        "Engineer",
+        "Others"
       ],
-      "_salary": 500000,
-      "_startDate": "2015-12-21T18:30:00.000Z",
-      "_notes": "Hello There...!!!!"
+      "_salary": "500000",
+      "_startDate": "2020-12-21T18:30:00.000Z",
+      "_note": "Good...!!!"
+    },
+    {
+      "_name": "Elon Musk",
+      "_profilePicture": "../assets/profile-images/Ellipse -3.png",
+      "_salary": "384700",
+      "_note": "Hello There...!!!!!",
+      "_startDate": "2021-03-31T18:30:00.000Z",
+      "_departments": [
+        "Engineer",
+        "Others"
+      ],
+      "id": 3
     }
   ]
 }

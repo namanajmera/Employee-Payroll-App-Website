@@ -24,11 +24,11 @@ const getEmployeePayrollDataFromServer = () => {
                employeePayrollDataList = JSON.parse(responseText);
                processEmployeePayrollDataResponse();
           })
-     // .catch(error => {
-     //      console.log("GET Error Status : " + JSON.stringify(error));
-     //      employeePayrollDataList = [];
-     //      processEmployeePayrollDataResponse();
-     // });
+          .catch(error => {
+               console.log("GET Error Status : " + JSON.stringify(error));
+               employeePayrollDataList = [];
+               processEmployeePayrollDataResponse();
+          });
 };
 
 const createInnerHTML = () => {
