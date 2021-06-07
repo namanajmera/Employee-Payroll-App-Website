@@ -30,18 +30,6 @@
       "_salary": "500000",
       "_startDate": "2020-12-21T18:30:00.000Z",
       "_note": "Good...!!!"
-    },
-    {
-      "_name": "Elon Musk",
-      "_profilePicture": "../assets/profile-images/Ellipse -3.png",
-      "_salary": "384700",
-      "_note": "Hello There...!!!!!",
-      "_startDate": "2021-03-31T18:30:00.000Z",
-      "_departments": [
-        "Engineer",
-        "Others"
-      ],
-      "id": 3
     }
   ]
 }
